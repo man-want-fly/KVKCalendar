@@ -215,6 +215,8 @@ final class MonthCell: KVKCollectionViewCell {
                         topLineLayer.backgroundColor = monthStyle.colorSeparator.cgColor
                         layer.addSublayer(topLineLayer)
                     }
+                    layer.borderWidth = monthStyle.widthSeparator
+                    layer.borderColor = monthStyle.colorSeparator.cgColor
                 default:
                     if day.type != .empty {
                         layer.borderWidth = monthStyle.isHiddenSeparatorOnEmptyDate ? 0 : monthStyle.widthSeparator
