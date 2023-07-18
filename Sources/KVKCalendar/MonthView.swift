@@ -109,7 +109,12 @@ final class MonthView: UIView {
     
     private func scrollToIndex(_ idx: Int, animated: Bool) {
         // to check when the calendarView is displayed on superview
-        guard superview?.superview != nil && collectionView?.dataSource != nil else { return }
+        guard superview?.superview != nil else { return }
+        guard
+            let collectionView,
+            collectionView.dataSource != nil,
+            collectionView.numberOfSections > idx
+        else { return }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
             guard let self = self else { return }
